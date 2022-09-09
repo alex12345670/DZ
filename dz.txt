@@ -1,39 +1,44 @@
-//задача 10//
-void InputNumbers()
+//задача 21//
+Console.WriteLine("Введите координаты двух точек");
+Console.Write("Введите x1: ");
+int x1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите y1: ");
+int y1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите z1: ");
+int z1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите x2: ");
+int x2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите y2: ");
+int y2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите z2: ");
+int z2 = Convert.ToInt32(Console.ReadLine());
+
+double L = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1-z2,2));
+Console.WriteLine("Расстояние между точками равно: " + L);
+
+//задача 23//
+Console.WriteLine("Введите число");
+
+int N = Convert.ToInt32(Console.ReadLine());
+
+for (int i = 1; i <= N; i++)
 {
-    int n = Convert.ToInt32(Console.ReadLine());
-    
-  
-    n = n/10;
-    n = n%10;
-    Console.WriteLine(n);
+  	double k = Math.Pow(i, 3); 
+	Console.Write(k + ",");
 }
 
-InputNumbers();
+//задача 19//
+Console.WriteLine("Введите пятизначное число");
 
-//задача 13//
-void third()
+string N = Console.ReadLine();
+int k = 0;
+
+for (int i = 0; i <= 1; i++)
 {
-    int n = Convert.ToInt32(Console.ReadLine());
-    if (n>99)
-        Console.Write(Convert.ToString(n)[2]);
-    else 
-        Console.Write("третьей цифры нет");
-
+   if (N[i] == N[4-i]) 
+      k++;
 }
-
-third();
-
-//задача 15//
-void day_off()
-{
-    Console.WriteLine("Напишите день недели(число от 1 до 7)");
-    int n = Convert.ToInt32(Console.ReadLine());
-    if (n==6 || n==7)
-        Console.Write("да");
-    else 
-        Console.Write("нет");
-
-}
-
-day_off();
+if (k == 2)
+   Console.Write("да");
+else
+   Console.Write("нет");
