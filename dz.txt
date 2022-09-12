@@ -1,3 +1,17 @@
+    //задача 25//
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
+int c = 1;
+for (int i=1; i<=b; i++)
+    c = c*a;
+Console.Write(c);    
+
+//задача 27//
+int a = Convert.ToInt32(Console.ReadLine());
+
+int c = 0;
+while (a > 0)
+{
     int a1 = a%10;
     c = c + a1;
     a = a/10;
