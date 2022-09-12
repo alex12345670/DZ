@@ -1,44 +1,38 @@
-//задача 21//
-Console.WriteLine("Введите координаты двух точек");
-Console.Write("Введите x1: ");
-int x1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите y1: ");
-int y1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите z1: ");
-int z1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите x2: ");
-int x2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите y2: ");
-int y2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите z2: ");
-int z2 = Convert.ToInt32(Console.ReadLine());
-
-double L = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1-z2,2));
-Console.WriteLine("Расстояние между точками равно: " + L);
-
-//задача 23//
-Console.WriteLine("Введите число");
-
-int N = Convert.ToInt32(Console.ReadLine());
-
-for (int i = 1; i <= N; i++)
-{
-  	double k = Math.Pow(i, 3); 
-	Console.Write(k + ",");
+    int a1 = a%10;
+    c = c + a1;
+    a = a/10;
 }
+  
+Console.Write(c);    
 
-//задача 19//
-Console.WriteLine("Введите пятизначное число");
+//зачада 29//
+int[] array = new int[8];
 
-string N = Console.ReadLine();
-int k = 0;
+for (int i = 0; i < array.Length; i++)
+    array[i] = new Random().Next(0, 34);
 
-for (int i = 0; i <= 1; i++)
+Console.WriteLine("[" + string.Join(", ", array) + "]");
+
+
+//задача доп//
+int N = new Random().Next(3, 10);
+int[] array = new int[N];
+
+for (int i = 0; i < array.Length; i++)
+    array[i] = new Random().Next(1, 10);
+
+int max = 3; 
+int k = 0;   
+
+for (int i = 0; i < array.Length -3; i++)
 {
-   if (N[i] == N[4-i]) 
-      k++;
+    k = array[i] + array[i+1] + array[i+2];
+    if (k > max) max = k;
+
 }
-if (k == 2)
-   Console.Write("да");
-else
-   Console.Write("нет");
+k = array[array.Length-3]+ array[array.Length-2]+array[0];
+    if (k > max) max = k;
+k = array[array.Length-2]+ array[1]+array[0];
+    if (k > max) max = k;
+
+Console.WriteLine(max);
