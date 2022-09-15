@@ -1,52 +1,66 @@
-    //задача 25//
-int a = Convert.ToInt32(Console.ReadLine());
-int b = Convert.ToInt32(Console.ReadLine());
-int c = 1;
-for (int i=1; i<=b; i++)
-    c = c*a;
-Console.Write(c);    
-
-//задача 27//
-int a = Convert.ToInt32(Console.ReadLine());
-
-int c = 0;
-while (a > 0)
+   //задача 34
+void InputArray(int[] array)
 {
-    int a1 = a%10;
-    c = c + a1;
-    a = a/10;
+    for (int i = 0; i < array.Length; i++)
+        array[i] = new Random().Next(100, 1000);
 }
-  
-Console.Write(c);    
 
-//зачада 29//
-int[] array = new int[8];
-
-for (int i = 0; i < array.Length; i++)
-    array[i] = new Random().Next(0, 34);
-
-Console.WriteLine("[" + string.Join(", ", array) + "]");
-
-
-//задача доп//
-int N = new Random().Next(3, 10);
-int[] array = new int[N];
-
-for (int i = 0; i < array.Length; i++)
-    array[i] = new Random().Next(1, 10);
-
-int max = 3; 
-int k = 0;   
-
-for (int i = 0; i < array.Length -3; i++)
+int Chet(int[] array)
 {
-    k = array[i] + array[i+1] + array[i+2];
-    if (k > max) max = k;
-
+    int k = 0;
+    for (int i = 0; i < array.Length; i++)
+        if (array[i]%2 == 0) k++;
+                  
+    
+    return k;
 }
-k = array[array.Length-3]+ array[array.Length-2]+array[0];
-    if (k > max) max = k;
-k = array[array.Length-2]+ array[1]+array[0];
-    if (k > max) max = k;
 
-Console.WriteLine(max);
+int[] arr = new int[20];
+InputArray(arr);
+
+Console.Write("количество четных чисел: " + Chet(arr) );
+
+
+//Задача 36
+void InputArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+        array[i] = new Random().Next(-10, 11);
+}
+
+int NchSumm(int[] array)
+{
+    int k = 0;
+    for (int i = 0; i < array.Length; i++)
+        if (i%2 == 1) k += array[i];
+                  
+    
+    return k;
+}
+
+int[] arr = new int[20];
+InputArray(arr);
+
+Console.Write("сумма элементов с нечетными индексами: " + NchSumm(arr) );
+
+//Задача 38
+double NchSumm(double[] array)
+{
+    double mink = array[0];
+    double maxk = array[0];
+    for (int i = 0; i < array.Length; i++)
+       { 
+        if (array[i] < mink) mink = array[i];
+        if (array[i] > maxk) maxk = array[i];
+
+       } 
+                  
+    double n = maxk - mink;
+    return  n;
+}
+
+double[] arr = new double[6];
+for (int i = 0; i < arr.Length; i++)
+    arr[i] = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("[" + string.Join(", ", arr) + "]");
+Console.Write("разница: " + NchSumm(arr) );
