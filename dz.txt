@@ -1,66 +1,60 @@
-   //задача 34
-void InputArray(int[] array)
+   //Задача 41
+int k = Convert.ToInt32(Console.ReadLine());
+int SearchNumber(int k)
 {
-    for (int i = 0; i < array.Length; i++)
-        array[i] = new Random().Next(100, 1000);
-}
-
-int Chet(int[] array)
-{
-    int k = 0;
-    for (int i = 0; i < array.Length; i++)
-        if (array[i]%2 == 0) k++;
-                  
+    int n = 0;
     
-    return k;
+    for (int i = 0; i<k; i++)
+    {
+        int m = Convert.ToInt32(Console.ReadLine());
+        if (m>0) n++;
+    }
+    return n;
 }
+Console.WriteLine(SearchNumber(k));
 
-int[] arr = new int[20];
-InputArray(arr);
+//Задача 43
+Console.WriteLine("Введите значения  b1, k1, b2 и k2 ");
+double b1 = Convert.ToInt32(Console.ReadLine());
+double k1 = Convert.ToInt32(Console.ReadLine());
+double b2 = Convert.ToInt32(Console.ReadLine());
+double k2 = Convert.ToInt32(Console.ReadLine());
+double x = (b2-b1)/(k1-k2);
+double y = k1 * x + b1;
+Console.WriteLine("(" + x + "; " + y + ")");
 
-Console.Write("количество четных чисел: " + Chet(arr) );
 
-
-//Задача 36
-void InputArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-        array[i] = new Random().Next(-10, 11);
-}
-
-int NchSumm(int[] array)
-{
-    int k = 0;
-    for (int i = 0; i < array.Length; i++)
-        if (i%2 == 1) k += array[i];
-                  
-    
-    return k;
-}
-
-int[] arr = new int[20];
-InputArray(arr);
-
-Console.Write("сумма элементов с нечетными индексами: " + NchSumm(arr) );
-
-//Задача 38
-double NchSumm(double[] array)
-{
-    double mink = array[0];
-    double maxk = array[0];
-    for (int i = 0; i < array.Length; i++)
-       { 
-        if (array[i] < mink) mink = array[i];
-        if (array[i] > maxk) maxk = array[i];
-
-       } 
-                  
-    double n = maxk - mink;
-    return  n;
-}
-
-double[] arr = new double[6];
-for (int i = 0; i < arr.Length; i++)
-    arr[i] = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("[" + string.Join(", ", arr) + "]");
-Console.Write("разница: " + NchSumm(arr) );
+//Транспорирование
+int n = Convert.ToInt32(Console.ReadLine());
+int m = Convert.ToInt32(Console.ReadLine());
+int [,] table = new int [n,m];
+for (int i = 0; i<n; i++)
+    {
+        for(int j = 0; j<m; j++)
+            table[i,j] = new Random().Next(0, 10);
+    }        
+for (int i = 0; i<n; i++)
+    {
+        for(int j = 0; j<m; j++)
+            Console.Write($"{table[i,j]} ");
+        Console.WriteLine();
+    }        
+int [,] tableClone = new int [n,m];
+for (int i = 0; i<n; i++)
+    {
+        for(int j = 0; j<m; j++)
+            tableClone[i,j] = table[i,j];
+    }       
+for (int i = 0; i<n; i++)
+    {
+        for(int j = 0; j<m; j++)
+        {
+            table[i,j] = tableClone[tableClone.GetLength(0)-i-1,j];
+        }
+    }
+for (int i = 0; i<n; i++)
+    {
+        for(int j = 0; j<m; j++)
+            Console.Write($"{table[i,j]} ");
+        Console.WriteLine();
+    }        
