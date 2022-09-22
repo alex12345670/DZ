@@ -1,60 +1,111 @@
-   //Задача 41
-int k = Convert.ToInt32(Console.ReadLine());
-int SearchNumber(int k)
+   //Задача 47
+
+void InputMatrix(double[,] matrix)
 {
-    int n = 0;
-    
-    for (int i = 0; i<k; i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        int m = Convert.ToInt32(Console.ReadLine());
-        if (m>0) n++;
+        for (int j = 0; j < matrix.GetLength(1); j++)
+           {  double k = new Random().Next(-100, 101);
+            double k1 = k/10;
+            matrix[i, j] = k1;
+           }
     }
-    return n;
 }
-Console.WriteLine(SearchNumber(k));
-
-//Задача 43
-Console.WriteLine("Введите значения  b1, k1, b2 и k2 ");
-double b1 = Convert.ToInt32(Console.ReadLine());
-double k1 = Convert.ToInt32(Console.ReadLine());
-double b2 = Convert.ToInt32(Console.ReadLine());
-double k2 = Convert.ToInt32(Console.ReadLine());
-double x = (b2-b1)/(k1-k2);
-double y = k1 * x + b1;
-Console.WriteLine("(" + x + "; " + y + ")");
-
-
-//Транспорирование
-int n = Convert.ToInt32(Console.ReadLine());
-int m = Convert.ToInt32(Console.ReadLine());
-int [,] table = new int [n,m];
-for (int i = 0; i<n; i++)
+void PrintMatrix(double[,] matrix)
+{
+    Console.WriteLine();
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for(int j = 0; j<m; j++)
-            table[i,j] = new Random().Next(0, 10);
-    }        
-for (int i = 0; i<n; i++)
-    {
-        for(int j = 0; j<m; j++)
-            Console.Write($"{table[i,j]} ");
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            Console.Write(matrix[i, j] + " \t");
         Console.WriteLine();
-    }        
-int [,] tableClone = new int [n,m];
-for (int i = 0; i<n; i++)
-    {
-        for(int j = 0; j<m; j++)
-            tableClone[i,j] = table[i,j];
-    }       
-for (int i = 0; i<n; i++)
-    {
-        for(int j = 0; j<m; j++)
-        {
-            table[i,j] = tableClone[tableClone.GetLength(0)-i-1,j];
-        }
     }
-for (int i = 0; i<n; i++)
+}    
+Console.Write("Введите кол-во строк: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите кол-во столбцов: ");
+int m = Convert.ToInt32(Console.ReadLine());
+double[, ] matrix = new double[n, m];
+InputMatrix(matrix);
+PrintMatrix(matrix);
+
+//Задача 50
+
+void InputMatrix(double[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for(int j = 0; j<m; j++)
-            Console.Write($"{table[i,j]} ");
+        for (int j = 0; j < matrix.GetLength(1); j++)
+           {  double k = new Random().Next(-100, 101);
+            double k1 = k/10;
+            matrix[i, j] = k1;
+           }
+    }
+}
+void PrintMatrix(double[,] matrix)
+{
+    Console.WriteLine();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            Console.Write(matrix[i, j] + " \t");
         Console.WriteLine();
-    }        
+    }
+}    
+Console.Write("Введите кол-во строк: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите кол-во столбцов: ");
+int m = Convert.ToInt32(Console.ReadLine());
+double[, ] matrix = new double[n, m];
+InputMatrix(matrix);
+PrintMatrix(matrix);
+Console.Write("Введите номер строки: ");
+int n1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите номер столбца: ");
+int m1 = Convert.ToInt32(Console.ReadLine());
+if (n1>=matrix.GetLength(0)|| m1>=matrix.GetLength(1)) Console.Write("такого элемента нет");
+else Console.Write(matrix[n1,m1]);
+
+
+//задача 52
+
+void InputMatrix(double[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+           {  double k = new Random().Next(-100, 101);
+            double k1 = k/10;
+            matrix[i, j] = k1;
+           }
+    }
+}
+void PrintMatrix(double[,] matrix)
+{
+    Console.WriteLine();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            Console.Write(matrix[i, j] + " \t");
+        Console.WriteLine();
+    }
+}    
+Console.Write("Введите кол-во строк: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите кол-во столбцов: ");
+int m = Convert.ToInt32(Console.ReadLine());
+double[, ] matrix = new double[n, m];
+InputMatrix(matrix);
+PrintMatrix(matrix);
+double SrednArf(double[,] matrix, int d)
+{
+    double s = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++) s+= matrix[i,d];
+    s = s/matrix.GetLength(0);
+    return s;    
+           
+    }
+
+for (int i = 0; i < matrix.GetLength(1); i++)
+Console.WriteLine(SrednArf(matrix, i));
+
