@@ -1,0 +1,19 @@
+string [] a = {"asd", "22", "qwerty", "bom"};
+int k = 0;
+for (int i = 0; i < a.Length; i++)
+{
+    if (a[i].Length<=3) 
+        
+            k++;
+        
+}
+string [] b = new string[k];
+k = 0;
+for (int i = 0; i < a.Length; i++)
+{
+    if (a[i].Length<=3) 
+           { b[k] = a[i];
+            k++;}
+        
+}
+Console.WriteLine("[" + string.Join(", ", b) + "]");
